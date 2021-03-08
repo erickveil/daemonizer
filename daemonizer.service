@@ -1,0 +1,15 @@
+[Unit]
+Description=Simple daemon template
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/daemonizer
+ExecReload=/bin/kill -HUP $MAINPID
+User=root
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=daemonizer
+
+[Install]
+WantedBy=multi-user.target
